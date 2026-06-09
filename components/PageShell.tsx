@@ -28,16 +28,24 @@ export default function PageShell({
   return (
     <div className="page-shell relative flex min-h-screen flex-col bg-black">
       <header
-        className={`relative z-10 grid grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-12 ${
+        className={`relative z-10 px-6 sm:px-12 ${
           contentAlign === "top" ? "py-4 sm:py-5" : "py-8"
         }`}
       >
-        <BrandLogo
-          linkClassName="justify-self-start"
-          className="h-14 w-auto sm:h-[4.5rem]"
-        />
-        <SiteNav activeHref={activeHref} size="compact" className="justify-self-center" />
-        <HeaderCta />
+        <div className="flex flex-col gap-3 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-0">
+          <div className="flex items-center justify-between sm:contents">
+            <BrandLogo
+              linkClassName="min-w-0 justify-self-start sm:col-start-1 sm:row-start-1"
+              className="h-10 w-auto max-w-[9.5rem] sm:h-[4.5rem] sm:max-w-none"
+            />
+            <HeaderCta className="shrink-0 sm:col-start-3 sm:row-start-1 sm:justify-self-end" />
+          </div>
+          <SiteNav
+            activeHref={activeHref}
+            size="compact"
+            className="sm:col-start-2 sm:row-start-1 sm:justify-self-center"
+          />
+        </div>
       </header>
 
       <main
